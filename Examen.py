@@ -41,13 +41,6 @@ def clasificar_rango(sueldo):
     else:
         return "Alto"
 
-# Función para realizar descuentos
-def aplicar_descuentos():
-    for trabajador in trabajadores:
-        if trabajador["sueldo"] > 1800000:
-            descuento = trabajador["sueldo"] * 0.7
-            trabajador["sueldo"] -= descuento
-            print(f"Sueldo de {trabajador['nombre']} con descuento: ${trabajador['sueldo']:,}")
 
 # Función para ver estadísticas
 def ver_estadisticas():
@@ -63,15 +56,14 @@ def ver_estadisticas():
 def generar_reporte_csv():
     with open("reporte_sueldos.csv", "w") as archivo:
         # Escribir encabezados
-        archivo.write("Nombre,Cargo,Sueldo,Rango,Descuento\n")
+        archivo.write("Nombre,Sueldo,Rango,\n")
 
         # Escribir datos de cada empleado
         for trabajador in trabajadores:
             nombre = trabajador["nombre"]
             sueldo = trabajador["sueldo"]
             rango = clasificar_rango(sueldo)
-            descuento = 0 if sueldo <= 1800000 else trabajador["sueldo"] * 0.7
-            archivo.write(f"{nombre},{sueldo:,},{rango},{descuento:,}\n")
+            archivo.write(f"{nombre},{sueldo:,},{rango},\n")
 
 # Menú principal
 def menu_principal():

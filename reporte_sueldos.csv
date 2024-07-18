@@ -1,11 +1,11 @@
-Nombre,Cargo,Sueldo,Rango,Descuento
-Juan Pérez,1,226,028,Alto,0
-María García,2,424,710,Alto,1,697,297.0
-Carlos López,1,785,792,Alto,0
-Ana Martínez,420,535,Bajo,0
-Pedro Rodríguez,653,475,Bajo,0
-Laura Hernández,1,908,190,Alto,1,335,733.0
-Miguel Sánchez,918,821,Alto,0
-Isabel Gómez,1,295,336,Alto,0
-Francisco Díaz,2,372,724,Alto,1,660,906.7999999998
-Elena Fernández,2,159,918,Alto,1,511,942.5999999999
+Nombre,Sueldo,Rango,
+Juan Pérez,2,452,005,Alto,
+María García,1,045,254,Alto,
+Carlos López,503,166,Bajo,
+Ana Martínez,1,810,226,Alto,
+Pedro Rodríguez,1,153,915,Alto,
+Laura Hernández,1,669,160,Alto,
+Miguel Sánchez,2,209,366,Alto,
+Isabel Gómez,2,438,748,Alto,
+Francisco Díaz,328,930,Bajo,
+Elena Fernández,1,068,326,Alto,
