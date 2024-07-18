@@ -20,11 +20,11 @@ def asignar_sueldos():
         
 def clasificar_sueldos():
     rangos = {"Bajo": 0, "Medio": 0, "Alto": 0}
-    for empleado in empleados:
-        sueldo = empleado["sueldo"]
-        if sueldo <= 1000000:
+    for trabajador in trabajadores:
+        sueldo = trabajador["sueldo"]
+        if sueldo < 800000:
             rangos["Bajo"] += 1
-        elif sueldo <= 1800000:
+        elif sueldo > 800001:
             rangos["Medio"] += 1
         else:
             rangos["Alto"] += 1
@@ -34,24 +34,24 @@ def clasificar_sueldos():
 
 # Función para clasificar un sueldo en un rango
 def clasificar_rango(sueldo):
-    if sueldo <= 1000000:
+    if sueldo <= 800000:
         return "Bajo"
-    elif sueldo <= 1800000:
+    elif sueldo <= 800001:
         return "Medio"
     else:
         return "Alto"
 
 # Función para realizar descuentos
 def aplicar_descuentos():
-    for empleado in empleados:
-        if empleado["sueldo"] > 1800000:
-            descuento = empleado["sueldo"] * 0.1
-            empleado["sueldo"] -= descuento
-            print(f"Sueldo de {empleado['nombre']} con descuento: ${empleado['sueldo']:,}")
+    for trabajador in trabajadores:
+        if trabajador["sueldo"] > 1800000:
+            descuento = trabajador["sueldo"] * 0.1
+            trabajador["sueldo"] -= descuento
+            print(f"Sueldo de {trabajador['nombre']} con descuento: ${trabajador['sueldo']:,}")
 
 # Función para ver estadísticas
 def ver_estadisticas():
-    sueldos = [empleado["sueldo"] for empleado in empleados]
+    sueldos = [trabajador["sueldo"] for trabajador in trabajadores]
     promedio = sum(sueldos) / len(sueldos)
     máximo = max(sueldos)
     mínimo = min(sueldos)
@@ -66,13 +66,12 @@ def generar_reporte_csv():
         archivo.write("Nombre,Cargo,Sueldo,Rango,Descuento\n")
 
         # Escribir datos de cada empleado
-        for empleado in empleados:
-            nombre = empleado["nombre"]
-            cargo = empleado["cargo"]
-            sueldo = empleado["sueldo"]
+        for trabajador in trabajadores:
+            nombre = trabajador["nombre"]
+            sueldo = trabajador["sueldo"]
             rango = clasificar_rango(sueldo)
-            descuento = 0 if sueldo <= 1800000 else empleado["sueldo"] * 0.1
-            archivo.write(f"{nombre},{cargo},{sueldo:,},{rango},{descuento:,}\n")
+            descuento = 0 if sueldo <= 1800000 else trabajador["sueldo"] * 0.1
+            archivo.write(f"{nombre},{sueldo:,},{rango},{descuento:,}\n")
 
 # Menú principal
 def menu_principal():
